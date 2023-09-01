@@ -1,4 +1,5 @@
-export 'message.dart' show Message;
 export 'block.dart' show Block;
-export 'textobject.dart' show TextObject;
 export 'element.dart' show Element;
+export 'elementtext.dart' show ElementText;
+export 'message.dart' show Message;
+export 'option.dart' show Option; 

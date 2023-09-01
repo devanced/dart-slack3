@@ -1,4 +1,4 @@
-# dart3-slack
+# slack_webhook
 
 Dartlang interface to the Slack Incoming Webhook API
 
@@ -8,29 +8,67 @@ This is somehow a fork of https://github.com/ChildrenOfUr/dart-slack
 
 ## Simple Start
 
-    import 'package:slack/html/slack';
-    // or
-    import 'package:slack/io/slack';
+import 'package:slack_webhook/dart_slack3.dart';
 
-    main() {
+main() {
 
-    		// Webhook: https://hooks.slack.com/services/T00000000/B00000000/XXXXXXXXXXXXXXXXXXXXXXXX
-      // Slack slack = new Slack('webhook-domain', 'webhook-path');
-    		Slack slack = new Slack('hooks.slack.com', '/services/T00000000/B00000000/XXXXXXXXXXXXXXXXXXXXXXXX');
+		// Webhook: https://hooks.slack.com/services/T00000000/B00000000/XXXXXXXXXXXXXXXXXXXXXXXX
+	// Slack slack = new Slack('webhook-domain', 'webhook-path');
+		Slack slack = new Slack('hooks.slack.com', '/services/T00000000/B00000000/XXXXXXXXXXXXXXXXXXXXXXXX');
 
-				Block block1 =
-				Block(
-					type: "section",
-					block_id: "section567",
-					accessory: Element.imageElement("http://placekitten.com/700/500", "Kitten"),
-					text: TextObject(type: "mrkdwn", text: "Markdown text"));
+		Message m;
 
-				Block block2 = Block(type: "section",
-					text: TextObject(type: "plain_text", text: "This is a plain text section block.")
-					);
+  m = Message(text: "Hello from Dart", blocks: [
+    Block(
+        type: "context",
+        block_id: "section567",
+        elements: [Element(
+            type: "image",
+            image_url:
+                "https://pbs.twimg.com/profile_images/625633822235693056/lNGUneLX_400x400.jpg",
+            alt_text: "Text"),
+        Element(type: "mrkdwn", text: "*Cat* has approved this message.")
+    ]),
+    Block(
+        type: "actions",
+        elements:
+        [
+          Element(type: "button", text: ElementText(type: "plain_text", text: "Click me", emoji: true), action_id: "actionId-1")
+        ] 
+      )
+  ]);
 
-				Message m = Message(text: "Hello from Dart" , blocks: [block1, block2]);
+  s.send(m);
 
-				s.send(m);
+  // Also possible to create from JSON, useful when building messages with Slack Block kit builder, https://app.slack.com/block-kit-builder/
+  m = Message.fromJson({
+    "blocks": [
+      {
+        "type": "context",
+        "elements": [
+          {
+            "type": "image",
+            "image_url":
+                "https://pbs.twimg.com/profile_images/625633822235693056/lNGUneLX_400x400.jpg",
+            "alt_text": "cute cat"
+          },
+          {"type": "mrkdwn", "text": "*Cat* has approved this message."}
+        ]
+      },
+      {
+        "type": "actions",
+        "elements": [
+          {
+            "type": "button",
+            "text": {"type": "plain_text", "text": "Click Me", "emoji": true},
+            "value": "click_me_123",
+            "action_id": "actionId-1"
+          }
+        ]
+      }
+    ]
+  });
 
-    }
+  s.send(m);
+
+}

@@ -8,21 +8,27 @@ part of 'element.dart';
 
 Element _$ElementFromJson(Map<String, dynamic> json) => Element(
       type: json['type'] as String,
+      action_id: json['action_id'] as String?,
+      alt_text: json['alt_text'] as String?,
+      emoji: json['emoji'] as bool?,
+      image_url: json['image_url'] as String?,
+      options: (json['options'] as List<dynamic>?)
+          ?.map((e) => Option.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      placholder: json['placholder'] == null
+          ? null
+          : Element.fromJson(json['placholder'] as Map<String, dynamic>),
+      style: json['style'] as String?,
       text: json['text'] == null
           ? null
-          : TextObject.fromJson(json['text'] as Map<String, dynamic>),
-      action_id: json['action_id'] as String?,
+          : json['text'] is String ? json['text'] as String? :  ElementText.fromJson(json['text'] as Map<String, dynamic>),
       url: json['url'] as String?,
       value: json['value'] as String?,
-      style: json['style'] as String?,
-      image_url: json['image_url'] as String?,
-      alt_text: json['alt_text'] as String?,
+      verbatim: json['verbatim'] as bool?,
     );
 
 Map<String, dynamic> _$ElementToJson(Element instance) {
-  final val = <String, dynamic>{
-    'type': instance.type,
-  };
+  final val = <String, dynamic>{};
 
   void writeNotNull(String key, dynamic value) {
     if (value != null) {
@@ -30,12 +36,17 @@ Map<String, dynamic> _$ElementToJson(Element instance) {
     }
   }
 
-  writeNotNull('text', instance.text);
   writeNotNull('action_id', instance.action_id);
+  writeNotNull('alt_text', instance.alt_text);
+  writeNotNull('emoji', instance.emoji);
+  writeNotNull('image_url', instance.image_url);
+  writeNotNull('options', instance.options);
+  writeNotNull('placholder', instance.placholder);
+  writeNotNull('style', instance.style);
+  writeNotNull('text', instance.text);
+  val['type'] = instance.type;
   writeNotNull('url', instance.url);
   writeNotNull('value', instance.value);
-  writeNotNull('style', instance.style);
-  writeNotNull('image_url', instance.image_url);
-  writeNotNull('alt_text', instance.alt_text);
+  writeNotNull('verbatim', instance.verbatim);
   return val;
 }

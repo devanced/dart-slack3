@@ -7,16 +7,14 @@ part of 'message.dart';
 // **************************************************************************
 
 Message _$MessageFromJson(Map<String, dynamic> json) => Message(
-      text: json['text'] as String,
       blocks: (json['blocks'] as List<dynamic>?)
           ?.map((e) => Block.fromJson(e as Map<String, dynamic>))
           .toList(),
+      text: json['text'] as String?,
     );
 
 Map<String, dynamic> _$MessageToJson(Message instance) {
-  final val = <String, dynamic>{
-    'text': instance.text,
-  };
+  final val = <String, dynamic>{};
 
   void writeNotNull(String key, dynamic value) {
     if (value != null) {
@@ -24,6 +22,7 @@ Map<String, dynamic> _$MessageToJson(Message instance) {
     }
   }
 
+  writeNotNull('text', instance.text);
   writeNotNull('blocks', instance.blocks);
   return val;
 }

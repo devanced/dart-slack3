@@ -1,4 +1,6 @@
-import 'package:dartslack3/dart_slack3.dart';
+
+
+import 'package:slack_webhook/src/models/models.dart';
 
 void main() {
   var awesome = Message(text: "Awesome");
