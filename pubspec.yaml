@@ -1,6 +1,6 @@
 name: slack_webhook
-description: Create and send messages using Slack Incoming Webhooks
-version: 1.0.0
+description: Create and send messages using Slack Incoming Webhooks. Complete support for Block(s).
+version: 1.0.1
 repository: https://github.com/devanced/dart-slack3
 
 environment:
