@@ -22,7 +22,7 @@ class Element {
       {required this.type,
       this.action_id,
       this.alt_text,
-      this.emoji, 
+      this.emoji,
       this.image_url,
       this.options,
       this.placholder,
