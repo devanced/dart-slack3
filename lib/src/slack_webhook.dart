@@ -1,4 +1,4 @@
-library slack_io;
+library slack_webhook;
 
 import 'package:http/http.dart' as http;
 import 'package:slack_webhook/src/exceptions/invalid_response_exception.dart';

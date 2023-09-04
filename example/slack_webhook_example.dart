@@ -1,11 +1,12 @@
-import 'package:slack_webhook/slack_webhook.dart';
+
+import 'package:slack_webhook/src/models/models.dart';
+import 'package:slack_webhook/src/slack_webhook.dart';
 
 void main() {
   
   // Replace with valid values, eg
   // 'hooks.slack.com', '/services/T000000/B00000/kldSD34SDsaa'
-  Slack slack = Slack('',
-      '');
+  Slack slack = Slack('hooks.slack.com','/services/T000000/B00000/kldSD34SDsaa');
 
   Message m;
 
