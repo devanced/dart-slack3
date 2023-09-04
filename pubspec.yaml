@@ -1,5 +1,5 @@
 name: slack_webhook
-description: A starting point for Dart libraries or applications.
+description: Create and send messages using Slack Incoming Webhooks
 version: 1.0.0
 repository: https://github.com/devanced/dart-slack3
 
