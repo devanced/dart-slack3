@@ -8,7 +8,7 @@ This is somehow a fork of https://github.com/ChildrenOfUr/dart-slack
 
 ## Simple Start
 ```
-import 'package:slack_webhook/dart_slack3.dart';
+import 'package:slack_webhook/slack_webhook.dart';
 
 void main(List<String> arguments) {
   // Webhook: https://hooks.slack.com/services/T00000000/B00000000/XXXXXXXXXXXXXXXXXXXXXXXX

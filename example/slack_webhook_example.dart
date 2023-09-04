@@ -1,4 +1,4 @@
-import 'package:slack_webhook/dart_slack3.dart';
+import 'package:slack_webhook/slack_webhook.dart';
 
 void main() {
   
