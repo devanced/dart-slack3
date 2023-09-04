@@ -1,7 +1,7 @@
 name: slack_webhook
 description: A starting point for Dart libraries or applications.
 version: 1.0.0
-# repository: https://github.com/my_org/my_repo
+repository: https://github.com/devanced/dart-slack3
 
 environment:
   sdk: ^3.1.0
@@ -9,7 +9,6 @@ environment:
 # Add regular dependencies here.
 dependencies:
   http: ^1.1.0
-  # path: ^1.8.0
 
 dev_dependencies:
   lints: ^2.0.0
