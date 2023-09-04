@@ -13,9 +13,8 @@ class Message {
   /// Creates a [Message] object which can be sent to a Slack channel
   Message({this.blocks, this.text});
   
-  
   factory Message.fromJson(Map<String, dynamic> json) => _$MessageFromJson(json);
 
-  /// Connect the generated [_$PersonToJson] function to the `toJson` method.
+  /// Connect the generated [_$MessageToJson] function to the `toJson` method.
   Map<String, dynamic> toJson() => _$MessageToJson(this);
 }

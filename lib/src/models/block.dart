@@ -25,7 +25,7 @@ class Block {
   
   Element? label;
 
-  ElementText? text;
+  Element? text;
   
   Element? title;
 

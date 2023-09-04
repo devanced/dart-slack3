@@ -29,7 +29,7 @@ Block _$BlockFromJson(Map<String, dynamic> json) => Block(
           : Element.fromJson(json['label'] as Map<String, dynamic>),
       text: json['text'] == null
           ? null
-          : ElementText.fromJson(json['text'] as Map<String, dynamic>),
+          : Element.fromJson(json['text'] as Map<String, dynamic>),
       title: json['title'] == null
           ? null
           : Element.fromJson(json['title'] as Map<String, dynamic>),

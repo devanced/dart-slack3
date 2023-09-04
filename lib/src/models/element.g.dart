@@ -2,6 +2,8 @@
 
 part of 'element.dart';
 
+// Generated code, modified to support both Element.text  as String and Element.text as Element
+
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
@@ -21,7 +23,7 @@ Element _$ElementFromJson(Map<String, dynamic> json) => Element(
       style: json['style'] as String?,
       text: json['text'] == null
           ? null
-          : json['text'] is String ? json['text'] as String? :  ElementText.fromJson(json['text'] as Map<String, dynamic>),
+          : json['text'] is String ? json['text'] as String? :  Element.fromJson(json['text'] as Map<String, dynamic>),
       url: json['url'] as String?,
       value: json['value'] as String?,
       verbatim: json['verbatim'] as bool?,

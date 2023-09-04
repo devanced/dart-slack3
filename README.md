@@ -8,8 +8,6 @@ This is somehow a fork of https://github.com/ChildrenOfUr/dart-slack
 
 ## Simple Start
 ```
-import 'dart:convert';
-
 import 'package:slack_webhook/dart_slack3.dart';
 
 void main(List<String> arguments) {
@@ -26,47 +24,26 @@ void main(List<String> arguments) {
           type: "image",
           image_url:
               "https://pbs.twimg.com/profile_images/625633822235693056/lNGUneLX_400x400.jpg",
-          alt_text: "Text"),
+          alt_text: "cute cat"),
       Element(type: "mrkdwn", text: "*Cat* has approved this message.")
+    ]),
+    Block(type: "context", elements: [
+      Element(type: "plain_text", text: "Author: K A Applegate", emoji: true)
     ]),
     Block(type: "actions", elements: [
       Element(
           type: "button",
-          text: ElementText(type: "plain_text", text: "Click me", emoji: true),
+          text: Element(type: "plain_text", text: "Click me", emoji: true),
+          value: 'click_me_123',
           action_id: "actionId-1")
-    ])
+    ]),
+    Block(
+        type: "image",
+        title: Element(type: "plain_text", text: "I need a Marg"),
+        image_url:
+            "https://assets3.thrillist.com/v1/image/1682388/size/tl-horizontal_main.jpg",
+        alt_text: "marg")
   ]);
-
-  slack.send(m);
-
-// Also possible to create from JSON, useful when building messages with Slack Block kit builder, https://app.slack.com/block-kit-builder/
-  m = Message.fromJson({
-    "blocks": [
-      {
-        "type": "context",
-        "elements": [
-          {
-            "type": "image",
-            "image_url":
-                "https://pbs.twimg.com/profile_images/625633822235693056/lNGUneLX_400x400.jpg",
-            "alt_text": "cute cat"
-          },
-          {"type": "mrkdwn", "text": "*Cat* has approved this message."}
-        ]
-      },
-      {
-        "type": "actions",
-        "elements": [
-          {
-            "type": "button",
-            "text": {"type": "plain_text", "text": "Click Me", "emoji": true},
-            "value": "click_me_123",
-            "action_id": "actionId-1"
-          }
-        ]
-      }
-    ]
-  });
 
   slack.send(m);
 }

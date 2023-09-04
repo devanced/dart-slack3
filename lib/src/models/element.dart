@@ -36,24 +36,4 @@ class Element {
       _$ElementFromJson(json);
 
   Map<String, dynamic> toJson() => _$ElementToJson(this);
-
-  /*
-  factory Element.buttonElement(
-    String text,
-    String action_id, {
-    String? url,
-    String? value,
-    String? style,
-  }) =>
-      Element(
-          type: 'button',
-          text: text,
-          action_id: action_id,
-          url: url,
-          value: value,
-          style: style);
-
-  factory Element.imageElement(String image_url, String alt_text) =>
-      Element(type: 'image', image_url: image_url, alt_text: alt_text);
-  */
 }
